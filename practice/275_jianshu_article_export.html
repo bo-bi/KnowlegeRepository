@@ -1,0 +1,25 @@
+<html>
+<body>
+	<div id="result"></div>
+</body>
+<script src="jQuery/jquery1.7.1.js"></script>
+<script>
+
+// https://www.jianshu.com/u/99b8712e8850?order_by=shared_at&page=2
+
+$(document).ready(function(){
+
+	var ag3 = "https://www.jianshu.com/u/99b8712e8850?order_by=shared_at&page=2";
+	
+    $.when( $.ajax({
+    	url: ag3,
+    	headers: {
+        	Accept: "text/html"
+    	},
+    	type: "get"
+    })).then(function(data, textStatus, jqXHR){
+     	debugger;
+    });
+});
+</script>
+</html>
