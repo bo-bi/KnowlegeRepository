@@ -1,0 +1,203 @@
+<html>
+<script src="socket.io.dev.js">
+</script>
+
+<script src="sampleData/api4.js"></script>
+<script src="sampleData/api5.js"></script>
+<style>
+  textarea {
+    resize: none;
+    overflow: hidden;
+    min-height: 50px;
+    max-height: 100px;
+}
+
+p {
+  margin:2px 2px 2px 2px;
+}
+
+div {
+  margin:2px 2px 2px 2px;
+}
+
+</style>
+<body style="background-color: rgb(199,237,204);">
+<div>
+    <p>Connected SocketID:</p>
+    <p id="connectedsocketID"></p> 
+</div>
+
+<div>
+<p>API 2</p>
+<button onclick= sendData() text = "Create KOI ID">
+  Create KOI ID
+</button>
+
+<button onclick= scan() text = "Ask for Requested Fields">
+  Ask for Requested Fields
+</button>
+
+<input id="qrcode" style="width:311px">Input QR code scanned from Webshop here</input>
+
+<p>response</p>
+<div><textarea id="api2result" style="color:blue; width: 90%;" onkeyup="auto_grow(this)"></textarea></div>
+</div>
+<p>API 3</p>
+<div>
+  <button onclick= confirm()>
+    Confirm Consent
+  </button>
+
+  <span>Confirm button has been pressed: </span>
+  <span id="confirmsentcount"></span><span> Times</span>
+</div>
+
+<p>API 4</p>
+<div>
+  <button onclick= profileUpdate()>
+    Global Profile Update
+  </button>
+</div>
+
+<p>API 5</p>
+<div>
+  <button onclick= webShopConsentUpdate()>
+    Nike Consent Field Update
+  </button>
+</div>
+
+<div>
+  <button onclick= revokeAll()>
+    Revoke All Fields
+  </button>
+</div>
+
+
+</body>
+<script>
+
+function profileUpdate(){
+  var oData = getAPI4SampleData();
+  this.jerrySocket.emit("requestFromKOIApp", oData);
+}
+
+function webShopConsentUpdate(){
+  var oData = getAPI5SampleData();
+  this.jerrySocket.emit("requestFromKOIApp", oData);
+}
+
+function sendData(){
+  var oData = {
+       type: "request",
+       method: "createKOIID",
+       data: ""
+  };
+  this.jerrySocket.emit("requestFromKOIApp", oData);
+}
+
+function getManualInputQRCode(){
+  var inputfield = document.getElementById("qrcode");
+  return inputfield.value;
+}
+
+function scan(){
+  var oData = {
+       type: "request",
+       method: "getRequestedDataFields",
+       data : {
+        QRCode : getManualInputQRCode()
+       }
+  };
+  this.jerrySocket.emit("requestFromKOIApp", oData);
+}
+
+function revokeAll(){
+  var oData = {
+       type: "request",
+       method: "revokeAllFields",
+       data : {
+        KOIID : "i042416",
+        webShopName: "Nike"
+      }
+  };
+  this.jerrySocket.emit("requestFromKOIApp", oData);
+}
+
+function confirm(){
+  var oData = {
+       type: "request",
+       method: "confirmRequest",
+       data : {
+        _requestCounter: confirmRequestCounter,
+        _clientSocketID: getClientSocketID(),
+        QRCode : getManualInputQRCode(),
+        KOIID : "i042416",
+        requestedData : [
+          { firstName : "Oliver"},
+          { lastName : "Latka"},
+          { email : "jerry@sap.com"}
+        ]
+       }
+  };
+  renderConfirmRequestCounter();
+  this.jerrySocket.emit("requestFromKOIApp", oData);
+}
+
+function getClientSocketID(){
+  var socketId = document.getElementById("connectedsocketID");
+  return socketId.innerText;
+}
+
+function renderConfirmRequestCounter(){
+  var counter = document.getElementById("confirmsentcount");
+  counter.innerText = ++confirmRequestCounter;
+}
+var confirmRequestCounter = 0;
+
+  var socket = io('ws://127.0.0.1:8877');
+  socket.on('connect', function(){
+    console.log("connected, socket id allocated in server:  " + this.id);
+    var socketId = document.getElementById("connectedsocketID");
+    socketId.innerText = this.id;
+  });
+
+  socket.on('createKOIID', function(data){
+    alert("KOI ID Created : " + data.data.KOIID);
+    console.log("response: " + data);
+  });
+
+  socket.on('getRequestedDataFields', function(data){
+    var result = document.getElementById("api2result");
+
+    result.value = JSON.stringify(data);
+    console.log("response: " + data);
+  });
+
+  socket.on('confirmRequest', function(data){
+    debugger;
+    console.log("response: " + data);
+  });
+
+
+  socket.on('disconnect', function(){
+    console.log("disconnect...");
+  });
+
+  // application layer event
+  socket.on("Connected", function(data){
+    console.log("receive socket id allocated for me in server: " + data.payload.clientSocketID );
+  });
+
+  this.jerrySocket = socket;
+
+</script>
+
+<script>
+
+// for better UI display
+function auto_grow(element) {
+    element.style.height = "5px";
+    element.style.height = (element.scrollHeight)+"px";
+}
+</script>
+</html>
