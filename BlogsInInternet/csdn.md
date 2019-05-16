@@ -19,11 +19,13 @@
 19060   793 345784 05/13
 19124   789 348946 05/14
 19196   783 351104 05/15
+19221   782 353621 05/16
 
+Marketing01:Welcome1
 explorer shell:::{BF782CC9-5A52-4A17-806C-2A894FFEEAC5}
-
+YY1_WECHATID_MPS
 Marketing Cloud contact页面的index.html
-
+Marketing01:Welcome1
 https://gdm-redflag.gcdemo.hybris.com/sap/bc/ui5_ui5/ui2/ushell/shells/abap/FioriLaunchpad.html?sap-client=100&sap-language=EN#MarketingContact-displayObjectPage?InteractionContactUUID=02000A21209F1EE99CDF1A1FC9AA8065&Relationship=1&Type=01&/Contacts/01/02000A21209F1EE99CDF1A1FC9AA8065/1
 
 
