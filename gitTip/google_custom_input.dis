@@ -26,16 +26,19 @@ ch	程序猿
 ch	程序员
 ch	Chrome
 cl	CloudFoundry
+clu	cluster
 co	Configuration
 cr	CRM
 d	德国人
 d	德国
 d	Docker
 d	dashboard
+deb	debug
 dy	蝶泳
 e	employee
 e	Extensibility
 ec	Eclipse
+ex	Extension field
 f	Fundamentals
 f	Fiori
 g	Google
@@ -61,6 +64,7 @@ k	开发者工具
 k	框架
 k	k8s
 k	Kubernetes
+ky	Kyma
 l	老哥猪年大吉
 l	Lambda
 l	连接
@@ -79,6 +83,7 @@ n	Netweaver
 n	nodejs
 n	Nginx
 n	namespace
+net	network
 o	Opportunity
 o	organization
 o	One Order
@@ -94,6 +99,7 @@ q	区块链
 r	容器
 r	Restful
 r	repository
+ro	round table
 rx	瑞幸咖啡
 s	Sales Order
 s	事务码
@@ -105,6 +111,7 @@ sa	SAP Cloud Platform
 sa	SAP云平台
 sa	SAP
 sc	schedule
+se	Service
 sf	Salesforce
 sg	Security Group
 so	Socket
