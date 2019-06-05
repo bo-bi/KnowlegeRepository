@@ -1,7 +1,5 @@
 1. 算法分析神器—时间复杂度: 码农翻身 2018-01-19
 
-3. [为什么有的人工作多年还是老样子?](www.jianshu.com/p/a5265c8e0ff8)
-
 形成个人知识体系, 形成个人方法体系
 
 4. [Node.js VS PHP：Web 开发的史诗级对决，你支持谁？](https://www.oschina.net/news/91783/node-js-vs-php)
