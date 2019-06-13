@@ -39,11 +39,19 @@ function getNodeTobeReplaced(current, parent, newPicUrl ){
 }
 
 /*
-wefsdfs
+
 ![clipboard3](https://user-images.githubusercontent.com/5669954/32415087-7b4d8a06-c26e-11e7-9122-c818d5f31586.png)
 */
 
-var IMAGE_PATTERN = /^!\[(.*)\].*$/;
+// var IMAGE_PATTERN = /^!\[(.*)\].*$/;
+
+// Jerry 2019-6-13 github image tag has changed?!
+
+/*
+<img width="587" alt="clipboard1" src="https://user-images.githubusercontent.com/5669954/59403437-2af8a700-8dd5-11e9-9ab3-bf9f1b7cbbea.png">
+
+*/
+var IMAGE_PATTERN = /^!\[(.*)\].*$/;///^.*src="(.*).*/;
 var IMAGE_NAME = /^clipboard(\d+)$/;
 var IMAGE_TAG = "[图片]";
 
@@ -62,25 +70,34 @@ function sortByIndex(v1,v2){
 		else return 0;
 }
 
+// complete url means: ![clipboard3](https://user-images.githubusercontent.com/5669954/32415087-7b4d8a06-c26e-11e7-9122-c818d5f31586.png)
+function getImageIndexAndComplateUrl(trimed){
+
+	var result = IMAGE_PATTERN.exec(trimed);
+	if(!result) // pattern fails to match
+		return null;
+	// result 0 : whole image markdown
+	// result 1 : "clipboard1"
+	if( result.length != 2){
+		return null;
+	}
+	var imageName = IMAGE_NAME.exec(result[1]);
+	if( imageName.length != 2) {
+		return null;
+	}
+	var index = parseInt(imageName[1]);
+	return new SortedImage(index, result[0]);
+}
+
 function extractImage(source,raw,imagePool){
 	var splitted = source.split("\n");
 	for( var i = 0; i < splitted.length; i++){
 		var origin = splitted[i];
 		var trimed = splitted[i].trim();
 		if( trimed.indexOf("clipboard") > 0 ) { 
-			var result = IMAGE_PATTERN.exec(trimed);
-			// result 0 : whole image markdown
-			// result 1 : "clipboard1"
-			if( result.length != 2){
-				continue;
-			}
-			var imageName = IMAGE_NAME.exec(result[1]);
-			if( imageName.length != 2) {
-				continue;
-			}
-			var index = parseInt(imageName[1]);
-			var storedImage = new SortedImage(index, result[0]);
-			imagePool.push(storedImage);
+			var storedImage = getImageIndexAndComplateUrl(trimed);
+			if( storedImage)
+				imagePool.push(storedImage);
 		}
 		else{
 			raw.push(origin);
