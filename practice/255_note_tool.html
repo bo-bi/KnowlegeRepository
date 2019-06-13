@@ -89,13 +89,46 @@ function getImageIndexAndComplateUrl(trimed){
 	return new SortedImage(index, result[0]);
 }
 
+/*
+<img width="587" alt="clipboard1" src="https://user-images.githubusercontent.com/5669954/59403437-2af8a700-8dd5-11e9-9ab3-bf9f1b7cbbea.png">
+
+*/
+
+var IMAGE_PATTERN_NEW = /^.*alt="(.*)".*src="(.*)".*/;
+function getImageIndexAndComplateUrl_new(trimed){
+
+	var result = IMAGE_PATTERN_NEW.exec(trimed);
+	if(!result) // pattern fails to match
+		return null;
+	// result 0 : whole image markdown
+	// result 1 : "clipboard1"
+	if( result.length != 3){
+		return null;
+	}
+	var imageName = IMAGE_NAME.exec(result[1]);
+	if( imageName.length != 2) {
+		return null;
+	}
+	var index = parseInt(imageName[1]);
+
+	var url = "![" + imageName + "]" + "(" + result[2] + ")";
+	return new SortedImage(index, url);
+}
+
+function isImage(trimed){
+	return trimed.indexOf("clipboard") > 0;
+}
+
+function isImage_new(trimed){
+	return trimed.indexOf("<img") == 0;
+}
 function extractImage(source,raw,imagePool){
 	var splitted = source.split("\n");
 	for( var i = 0; i < splitted.length; i++){
 		var origin = splitted[i];
 		var trimed = splitted[i].trim();
-		if( trimed.indexOf("clipboard") > 0 ) { 
-			var storedImage = getImageIndexAndComplateUrl(trimed);
+		if( isImage_new(trimed) ) { 
+			var storedImage = getImageIndexAndComplateUrl_new(trimed);
 			if( storedImage)
 				imagePool.push(storedImage);
 		}
