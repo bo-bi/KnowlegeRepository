@@ -1,0 +1,194 @@
+<html id="whole">
+
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="d2.ico" />
+<title>Github上传工具</title>
+</head>
+
+<style>
+
+#raw, #result {
+	background-color: rgb(199,237,204);
+}
+
+#whole {
+	background-color: black;
+}
+</style>
+<textarea id="raw" rows="40" cols="80">
+</textarea>
+<textarea id="result" rows="40" cols="80">
+Paste the raw string copied from Cloud note in the Raw area
+</textarea>
+<button onclick="myFunction()">Click me</button>
+<script>
+
+/*
+![clipboard3](https://user-images.githubusercontent.com/5669954/32415087-7b4d8a06-c26e-11e7-9122-c818d5f31586.png)
+
+2017-11-11 1：11PM [图片] and ![imageTag] must be matched.
+*/
+
+
+function getNodeTobeReplaced(current, parent, newPicUrl ){
+	return {
+		"current": current,
+		"parent": parent,
+		"newPicUrl": newPicUrl
+	};
+}
+
+/*
+
+![clipboard3](https://user-images.githubusercontent.com/5669954/32415087-7b4d8a06-c26e-11e7-9122-c818d5f31586.png)
+*/
+
+// var IMAGE_PATTERN = /^!\[(.*)\].*$/;
+
+// Jerry 2019-6-13 github image tag has changed?!
+
+/*
+<img width="587" alt="clipboard1" src="https://user-images.githubusercontent.com/5669954/59403437-2af8a700-8dd5-11e9-9ab3-bf9f1b7cbbea.png">
+
+*/
+var IMAGE_PATTERN = /^!\[(.*)\].*$/;///^.*src="(.*).*/;
+var IMAGE_NAME = /^clipboard(\d+)$/;
+var IMAGE_TAG = "[图片]";
+
+function SortedImage(index, url){
+	this.index = index;
+	this.url = url;
+}
+
+function sortByIndex(v1,v2){
+		if(v1.index < v2.index ){
+			return -1;
+		}
+		else if(v1.index > v2.index ){
+			return 1;
+		}
+		else return 0;
+}
+
+// complete url means: ![clipboard3](https://user-images.githubusercontent.com/5669954/32415087-7b4d8a06-c26e-11e7-9122-c818d5f31586.png)
+function getImageIndexAndComplateUrl(trimed){
+
+	var result = IMAGE_PATTERN.exec(trimed);
+	if(!result) // pattern fails to match
+		return null;
+	// result 0 : whole image markdown
+	// result 1 : "clipboard1"
+	if( result.length != 2){
+		return null;
+	}
+	var imageName = IMAGE_NAME.exec(result[1]);
+	if( imageName.length != 2) {
+		return null;
+	}
+	var index = parseInt(imageName[1]);
+	return new SortedImage(index, result[0]);
+}
+
+/*
+<img width="587" alt="clipboard1" src="https://user-images.githubusercontent.com/5669954/59403437-2af8a700-8dd5-11e9-9ab3-bf9f1b7cbbea.png">
+
+*/
+
+var IMAGE_PATTERN_NEW = /^.*alt="(.*)".*src="(.*)".*/;
+function getImageIndexAndComplateUrl_new(trimed){
+
+	var result = IMAGE_PATTERN_NEW.exec(trimed);
+	if(!result) // pattern fails to match
+		return null;
+	// result 0 : whole image markdown
+	// result 1 : "clipboard1"
+	if( result.length != 3){
+		return null;
+	}
+	var imageName = IMAGE_NAME.exec(result[1]);
+	if( imageName.length != 2) {
+		return null;
+	}
+	var index = parseInt(imageName[1]);
+
+	var url = "![" + imageName + "]" + "(" + result[2] + ")";
+	return new SortedImage(index, url);
+}
+
+function isImage(trimed){
+	return trimed.indexOf("clipboard") > 0;
+}
+
+function isImage_new(trimed){
+	return trimed.indexOf("<img") == 0;
+}
+function extractImage(source,raw,imagePool){
+	var splitted = source.split("\n");
+	for( var i = 0; i < splitted.length; i++){
+		var origin = splitted[i];
+		var trimed = splitted[i].trim();
+		if( isImage_new(trimed) ) { 
+			var storedImage = getImageIndexAndComplateUrl_new(trimed);
+			if( storedImage)
+				imagePool.push(storedImage);
+		}
+		else{
+			raw.push(origin);
+		}
+	}
+	imagePool.sort(sortByIndex);
+}
+
+function replaceImageTag(raw,imagePool){
+	var formatted = "";
+	var line = "";
+	for( var i = 0; i < raw.length; i++){
+		if( raw[i].indexOf(IMAGE_TAG) < 0){
+			line = raw[i];
+		}
+		else{
+			line = imagePool.shift().url;
+		}
+		formatted = formatted + "\n" + line;
+	}
+	return formatted;
+}
+
+function myFunction(){
+	var source = document.getElementById("raw");
+	var html = source.value;
+	var rawItem = [];
+	var imagePool = [];
+	extractImage(html,rawItem, imagePool);
+	var formatted = replaceImageTag(rawItem,imagePool);
+	var target = document.getElementById("result");
+	target.value = addSignature(formatted);
+	copyToClipboard(target);
+	clearInput();
+}
+
+function clearInput(){
+	var source = document.getElementById("raw");
+	source.value = "";
+}
+
+function copyToClipboard(node) {
+  node.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    alert('Copying text command was ' + msg);
+  } catch (err) {
+    alert('Oops, unable to copy: ' + msg);
+  }
+}
+
+function addSignature(raw){
+	var jerry = "![](https://upload-images.jianshu.io/upload_images/2085791-c4f58b9813a954cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)";
+	var result = raw + "要获取更多Jerry的原创文章，请关注公众号\"汪子熙\":";
+	result = result + "\n" + jerry;
+	return result;
+}
+</script>
+</html>
