@@ -12,18 +12,10 @@
 31412   277 490348 07/04 2198 
 31819   269 493659 07/05 2214
 32344   261 497091 07/06 2214
+32862   253 500303 07/07 2214 
 
-# SAP ABAP实用技巧介绍系列之 How is configuration data loaded
-
-2019-07-05 201开始 215服务器就挂了 99页
-
-221 4：53pm dao 227又卡死了 230结束
-
-晚上132开始 239 done
-
-github issue上的文章不要发到今日头条上
-
-9:51pm 252结束
-
+如何在SAP CRM WebClient UI element id generation logic
+2019-07-07 早上 303开始 目标352
+wordpress里mySql服务器的配置
 
 
