@@ -10,11 +10,11 @@
 32862   253 500303 07/07 2214 
 33357   248 504381 07/08 2225
 33881   244 508135 07/09 2244
+34422   235 512839 07/10 2283
 
 如何在SAP CRM WebClient UI element id generation logic
-2019-07-09 早上 409开始 目标459 92页
-cannot delete activity in SAP CRM WebClient UI
-ubuntu上的wordpress安装
-ubuntu上的wordpress文章的本地存储位置
+2019-07-10 早上 460开始 目标510 90页
+
 mysql -u root -p 
 
+和SAP Sales Organization相关的一些有用函数
