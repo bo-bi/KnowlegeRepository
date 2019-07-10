@@ -13,7 +13,7 @@
 34422   235 512839 07/10 2283
 
 如何在SAP CRM WebClient UI element id generation logic
-2019-07-10 早上 460开始 目标510 90页
+2019-07-10 早上 512开始 目标562 89页
 
 mysql -u root -p 
 
