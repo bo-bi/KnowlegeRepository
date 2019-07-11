@@ -7,6 +7,7 @@ a	爱好者
 a	ABAP
 aa	```ABAP
 ac	Access Token
+ad	Administrator
 ad	Administration
 al	阿里云
 an	安卓
@@ -37,6 +38,7 @@ co	Coresystem
 co	Configuration
 con	contact
 coo	Cookie
+cor	Corporate Network
 cr	CRM
 cs	CSRF token
 ct	Controll
@@ -46,12 +48,14 @@ d	德国
 d	Docker
 d	dashboard
 deb	debug
+des	Destination
 det	determination
 dy	蝶泳
 e	employee
 e	Extensibility
 ec	Eclipse
 ee	```
+ex	Extensibility
 ex	Extension field
 f	Fundamentals
 f	Fiori
@@ -63,6 +67,8 @@ gzh	公众号
 h	环境变量
 h	HANA
 h	Hybris
+har	Harmonization
+hay	Haytham
 ht	HTTP
 i	i042416
 i	innovation
@@ -93,6 +99,7 @@ l	Linux
 l	老哥
 la	Launchpad
 lb	Load Balancer
+leo	Leonardo
 m	Manifest.yml
 m	middleware
 m	mongoDB
@@ -105,9 +112,11 @@ n	Nginx
 n	namespace
 net	network
 no	Notification
+np	notepad
 o	Opportunity
 o	organization
 o	One Order
+od	OData
 or	Orchestra
 ov	Overview
 p	package.json
@@ -145,8 +154,13 @@ sf	Salesforce
 sg	Security Group
 sh	上海
 so	Socket
+sp	Spring
 ss	```JavaScript
 su	subscribe
+sz	数字创新空间
+t	tcode
+t	TCP/IP
+sup	Support
 sz	数字创新空间
 t	tcode
 t	TCP/IP
@@ -156,9 +170,6 @@ th	Thread
 tj	套接字
 to	token
 tr	Transaction
-tw	Twitter
-u	UI5
-u	Ubuntu
 v	Visual Studio Code
 v	VirtualBox
 vi	visibility
@@ -172,6 +183,7 @@ wc	Work Center
 we	WebIDE
 wf	微服务
 win	Windows10
+wp	Wordpress
 ws	Web Shop
 ws	WebSocket
 wz	汪子熙
@@ -186,3 +198,4 @@ y	游泳
 z	最佳实践
 z	中间件
 z	自由泳
+zho	中间件

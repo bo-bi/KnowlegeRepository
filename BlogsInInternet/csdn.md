@@ -14,8 +14,8 @@
 34958   225 516427 07/11 2307
 
 如何在SAP CRM WebClient UI element id generation logic
-2019-07-10 早上 512开始 目标562 89页
-
+2019-07-11 早上 557开始 目标607 87页
+ABAP Pragma
 mysql -u root -p 
 
 和SAP Sales Organization相关的一些有用函数
