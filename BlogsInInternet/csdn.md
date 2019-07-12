@@ -12,12 +12,11 @@
 33881   244 508135 07/09 2244
 34422   235 512839 07/10 2283
 34958   225 516427 07/11 2307
+35476   222 519694 07/12 2314
 
 如何在SAP CRM WebClient UI element id generation logic
 2019-07-11 早上 557开始 目标607 87页
 ABAP Pragma
 mysql -u root -p 
-
-和SAP Sales Organization相关的一些有用函数
 
 
