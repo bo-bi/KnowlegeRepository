@@ -14,14 +14,17 @@
 38641   178 536824 07/18 2390
 38941   174 539827 07/19 2415 
 39098   173 542052 07/20 2431
+39313   171 543726 07/21 2431
 
 2019-07-19 早上 902开始 目标952 77页 到901的时候，转存失败了。
 
 https://github.com/i042416/KnowlegeRepository/issues?page=76&q=is%3Aissue+is%3Aopen
 
-922 done
+941 done
 
 
 
-老哥多理解下哈，我是程序员，每周工作6天，每天早上9点上班，晚上12点下班，忙得很，没有太多时间和大家交流。生活所迫，望见谅，谢谢!
+https://blogs.sap.com/2017/03/04/side-by-side-sapui5-vs.-react-angular2/
+
+docker run -d -p 1082:80 jerry-nginx-image:1.0
 
