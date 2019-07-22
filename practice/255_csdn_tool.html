@@ -1,0 +1,177 @@
+<html id="whole">
+
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="d2.ico" />
+<title>github issue转CSDN博客工具</title>
+</head>
+
+<style>
+
+#raw, #result {
+	background-color: rgb(199,237,204);
+}
+
+#whole {
+	background-color: black;
+}
+</style>
+<textarea id="raw" rows="40" cols="80">
+</textarea>
+<textarea id="result" rows="40" cols="80">
+把github issue的markdown源代码粘贴过来，会自动转成CSDN markdown博客内容
+</textarea>
+<button onclick="myFunction()">Click me</button>
+<script>
+
+/*
+![clipboard3](https://user-images.githubusercontent.com/5669954/32415087-7b4d8a06-c26e-11e7-9122-c818d5f31586.png)
+
+2017-11-11 1：11PM [图片] and ![imageTag] must be matched.
+*/
+
+
+function getNodeTobeReplaced(current, parent, newPicUrl ){
+	return {
+		"current": current,
+		"parent": parent,
+		"newPicUrl": newPicUrl
+	};
+}
+
+/*
+
+![clipboard3](https://user-images.githubusercontent.com/5669954/32415087-7b4d8a06-c26e-11e7-9122-c818d5f31586.png)
+*/
+
+// var IMAGE_PATTERN = /^!\[(.*)\].*$/;
+
+// Jerry 2019-6-13 github image tag has changed?!
+
+/*
+<img width="587" alt="clipboard1" src="https://user-images.githubusercontent.com/5669954/59403437-2af8a700-8dd5-11e9-9ab3-bf9f1b7cbbea.png">
+
+*/
+var IMAGE_PATTERN = /^!\[(.*)\]\((.*)\).*$/;///^.*src="(.*).*/;
+var IMAGE_NAME = /^clipboard(\d+)$/;
+var IMAGE_TAG = "[图片]";
+
+function SortedImage(index, url){
+	this.index = index;
+	this.url = url;
+}
+
+function sortByIndex(v1,v2){
+		if(v1.index < v2.index ){
+			return -1;
+		}
+		else if(v1.index > v2.index ){
+			return 1;
+		}
+		else return 0;
+}
+
+// complete url means: ![clipboard3](https://user-images.githubusercontent.com/5669954/32415087-7b4d8a06-c26e-11e7-9122-c818d5f31586.png)
+function getImageIndexAndComplateUrl(trimed){
+
+	var result = IMAGE_PATTERN.exec(trimed);
+
+	if(!result) // pattern fails to match
+		return null;
+	// result 0 : whole image markdown
+	// result 1 : "clipboard1"
+	if( result.length != 3){
+		return null;
+	}
+	var imageName = IMAGE_NAME.exec(result[1]);
+	if( imageName.length != 2) {
+		return null;
+	}
+	var index = parseInt(imageName[1]);
+	return new SortedImage(index, result[2]);
+}
+
+/*
+<img width="587" alt="clipboard1" src="https://user-images.githubusercontent.com/5669954/59403437-2af8a700-8dd5-11e9-9ab3-bf9f1b7cbbea.png">
+
+*/
+
+function isImage(trimed){
+	if ( trimed.indexOf("clipboard") > 0 && trimed.indexOf("![") === 0)
+		return true;
+	return false;
+}
+
+
+function extractImage(source,raw,imagePool){
+	var splitted = source.split("\n");
+	for( var i = 0; i < splitted.length; i++){
+		var origin = splitted[i];
+		var trimed = splitted[i].trim();
+		if( isImage(trimed) ) { 
+			var storedImage = getImageIndexAndComplateUrl(trimed);
+			if( storedImage)
+				imagePool.push(storedImage);
+			else{
+				alert("caution! Corrupt image tag!");
+			}
+		}
+		// Jerry: for CSDN blog, the raw image markdown source should also be reserved
+		raw.push(origin);
+	}
+	imagePool.sort(sortByIndex);
+}
+
+function replaceImageTag(raw,imagePool){
+	var formatted = "";
+	var line = "";
+	for( var i = 0; i < raw.length; i++){
+		if( !isImage(raw[i])) {
+			line = raw[i];
+		}
+		else{
+			line = imagePool.shift().url;
+			line = "<img src=\"" + line + "\">";
+		}
+		formatted = formatted + "\n" + line;
+	}
+	return formatted;
+}
+
+function myFunction(){
+	var source = document.getElementById("raw");
+	var html = source.value;
+	var rawItem = [];
+	var imagePool = [];
+	extractImage(html,rawItem, imagePool);
+	var formatted = replaceImageTag(rawItem,imagePool);
+	var target = document.getElementById("result");
+	target.value = addSignature(formatted);
+	copyToClipboard(target);
+	clearInput();
+}
+
+function clearInput(){
+	var source = document.getElementById("raw");
+	source.value = "";
+}
+
+function copyToClipboard(node) {
+  node.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    alert('Copying text command was ' + msg);
+  } catch (err) {
+    alert('Oops, unable to copy: ' + msg);
+  }
+}
+
+function addSignature(raw){
+	var jerry = "![公众号截图](https://user-images.githubusercontent.com/5669954/60097669-68224900-9786-11e9-9f1e-e8bee08db4fa.png)";
+	var result = raw + "要获取更多Jerry的原创文章，请关注公众号\"汪子熙\":";
+	result = result + "\n" + jerry;
+	return result;
+}
+</script>
+</html>

@@ -20,9 +20,9 @@
 
 https://github.com/i042416/KnowlegeRepository/issues?page=76&q=is%3Aissue+is%3Aopen
 
-941 done
+954 done
 
-
+https://api.github.com/repos/i042416/KnowlegeRepository/955 +  "/issues/" + issueNumber
 
 https://blogs.sap.com/2017/03/04/side-by-side-sapui5-vs.-react-angular2/
 
