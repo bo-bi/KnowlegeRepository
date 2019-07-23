@@ -15,14 +15,15 @@
 38941   174 539827 07/19 2415 
 39098   173 542052 07/20 2431
 39313   171 543726 07/21 2431
+39802   168 548721 07/23 2459
 
-2019-07-22 早上 955开始 目标1055 77页 
+2019-07-22 早上 955开始 目标1005 77页 
 
 https://github.com/i042416/KnowlegeRepository/issues?page=76&q=is%3Aissue+is%3Aopen
 
-954 done
+990 done
 
-https://api.github.com/repos/i042416/KnowlegeRepository/955 +  "/issues/" + issueNumber
+https://api.github.com/repos/i042416/KnowlegeRepository/issues/955
 
 https://blogs.sap.com/2017/03/04/side-by-side-sapui5-vs.-react-angular2/
 
