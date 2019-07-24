@@ -16,10 +16,11 @@
 39098   173 542052 07/20 2431
 39313   171 543726 07/21 2431
 39802   168 548721 07/23 2459
+40338   160 552655 07/24 2460
 
-2019-07-22 早上 955开始 目标1005 77页 
+2019-07-22 早上 1041开始 目标1090 77页 
 
-https://github.com/i042416/KnowlegeRepository/issues?page=76&q=is%3Aissue+is%3Aopen
+https://github.com/i042416/KnowlegeRepository/issues?page=73&q=is%3Aissue+is%3Aopen
 
 990 done
 
