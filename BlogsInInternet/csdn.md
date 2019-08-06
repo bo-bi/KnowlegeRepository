@@ -13,17 +13,12 @@
 40412   159 560291 07/28 
 40417   159 561515 07/29
 40442   159 564876 07/30
-40555   158 577576 08/05
+40555   158 577576 08/05 2483
+40999   156 580835 08/06 2483
 
-2019-07-22 早上 1041开始 目标1090 77页 
+2019-08-05 早上 1109开始 目标1095 71页 
 
-https://github.com/i042416/KnowlegeRepository/issues?page=73&q=is%3Aissue+is%3Aopen
+https://github.com/i042416/KnowlegeRepository/issues?page=71&q=is%3Aissue+is%3Aopen
 
-990 done
 
-https://api.github.com/repos/i042416/KnowlegeRepository/issues/955
-Orchestration of WordPress, SAP Kyma and Wechat
-https://blogs.sap.com/2017/03/04/side-by-side-sapui5-vs.-react-angular2/
-
-docker run -d -p 1082:80 jerry-nginx-image:1.0
 
