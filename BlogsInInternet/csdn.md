@@ -17,10 +17,11 @@
 
 2019-08-05 早上 1655开始 目标1441 49页 
 
-https://github.com/i042416/KnowlegeRepository/issues?page=49&q=is%3Aissue+is%3Aopen
+https://github.com/i042416/KnowlegeRepository/issues?page=3&q=is%3Aissue+is%3Aopen
 
 更多SAP原创技术分析，请关注公众号“汪子熙”。
 
-2820结束，今天的quota用了20
+2800结束，今天的quota用了20
 
-dRmdxKXKkyQgqYrkqwGY9KfGzyVgdHRPP@tFrAXf
+本文介绍Service Team在索引表CRMD_ORDER_INDEX中的存储设计
+
