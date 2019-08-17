@@ -15,6 +15,7 @@
 42122   140 600652 08/14 2574
 42312   139 603491 08/15 2574
 42516   138 607016 08/16 2574 
+42820   137 609440 08/17 2589
 
 2019-08-05 早上 1655开始 目标1441 49页 
 
@@ -24,6 +25,6 @@ https://github.com/i042416/KnowlegeRepository/issues?page=6&q=is%3Aissue+is%3Aop
 
 2770结束，今天的quota用了30
 
-印度人后台：SP_ADMIN001 / t+)lZ6t)TMl~UYvNgh\]
+印度人后台：SP_ADMIN001 / WB($cXWpQyx2d$R>c>>X
 
 &client_type=html
