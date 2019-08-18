@@ -16,14 +16,15 @@
 42312   139 603491 08/15 2574
 42516   138 607016 08/16 2574 
 42820   137 609440 08/17 2589
+43212   134 611605 08/18 2589
 
 2019-08-05 早上 1655开始 目标1441 49页 
 
-https://github.com/i042416/KnowlegeRepository/issues?page=6&q=is%3Aissue+is%3Aopen
+https://github.com/i042416/KnowlegeRepository/issues?page=8&q=is%3Aissue+is%3Aopen
 
 更多SAP原创技术分析，请关注公众号“汪子熙”。
 
-2770结束，今天的quota用了30
+2730结束，今天的quota用了30
 
 印度人后台：SP_ADMIN001 / WB($cXWpQyx2d$R>c>>X
 
