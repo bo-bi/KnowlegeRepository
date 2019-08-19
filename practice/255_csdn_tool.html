@@ -15,12 +15,31 @@
 	background-color: black;
 }
 </style>
-<textarea id="raw" rows="40" cols="80">
+<textarea id="raw" rows="40" cols="80" onkeydown="keySend(event);">
 </textarea>
 <textarea id="result" rows="40" cols="80">
 把github issue的markdown源代码粘贴过来，会自动转成CSDN markdown博客内容
 </textarea>
-<button onclick="myFunction()">Click me</button>
+<button id="jerrybutton" onclick="myFunction()">Click me</button>
+
+<script type="text/javascript" event="onkeydown" for="document"> 
+if(event.keyCode==13) 
+{ 
+	var button=document.getElementById("jerrybutton"); 
+	button.focus(); 
+	button.onclick(); 
+} 
+
+</script> 
+<script>
+	function keySend(event) {
+		if (event.ctrlKey && event.keyCode == 13) {
+			var button=document.getElementById("jerrybutton"); 
+			button.focus(); 
+			button.onclick(); 
+		}
+	}
+</script>
 <script>
 
 /*
