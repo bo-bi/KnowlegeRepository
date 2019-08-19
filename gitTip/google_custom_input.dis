@@ -26,6 +26,7 @@ c	CloudFoundry
 c	CDS view
 c	Cloud
 c	C4C
+cc	C/4HANA
 cc	SAP Cloud Connector
 ce	Certificate
 ch	程序猿
@@ -55,6 +56,7 @@ e	employee
 e	Extensibility
 ec	Eclipse
 ee	```
+ef	Extension Factory
 ex	Extensibility
 ex	Extension field
 f	Fundamentals
@@ -63,6 +65,7 @@ g	Google
 g	Gigya
 g	Github
 go	Google
+gr	GraphQL
 gzh	公众号
 h	环境变量
 h	HANA
@@ -90,6 +93,7 @@ k	开发者工具
 k	框架
 k	k8s
 k	Kubernetes
+ku	Kubeless
 ky	Kyma
 l	老哥猪年大吉
 l	Lambda
@@ -98,6 +102,7 @@ l	链接
 l	Linux
 l	老哥
 la	Launchpad
+lam	Lambda Function
 lb	Load Balancer
 leo	Leonardo
 m	Manifest.yml
@@ -106,6 +111,7 @@ m	mongoDB
 m	Markdown
 ma	Marketing
 mc	Marketing Cloud
+ml	Machine Learning
 n	Netweaver
 n	nodejs
 n	Nginx
@@ -147,8 +153,10 @@ sa	SAP成都研究院
 sa	SAP Cloud Platform
 sa	SAP云平台
 sa	SAP
+sb	Sebastian
 sc	schedule
 se	Service
+ser	Serverless
 ses	session
 sf	Salesforce
 sg	Security Group
@@ -167,6 +175,7 @@ t	TCP/IP
 t	通信
 t	腾讯
 th	Thread
+tha	Thank you very much for your kind help!
 tj	套接字
 to	token
 tr	Transaction
@@ -183,7 +192,7 @@ wc	Work Center
 we	WebIDE
 wf	微服务
 win	Windows10
-wp	Wordpress
+wp	WordPress
 ws	Web Shop
 ws	WebSocket
 wz	汪子熙
