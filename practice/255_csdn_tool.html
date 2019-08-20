@@ -111,6 +111,13 @@ function isImage(trimed){
 	return false;
 }
 
+function isOriginalSignature(origin){
+	if( (origin.indexOf("原创文章") > 0) && (origin.indexOf("关注公众号") > 0))
+		return true;
+	if( origin.indexOf("[公众号截图]") > 0)
+		return true;
+	return false;
+}
 
 function extractImage(source,raw,imagePool){
 	var splitted = source.split("\n");
@@ -126,6 +133,10 @@ function extractImage(source,raw,imagePool){
 			}
 		}
 		// Jerry: for CSDN blog, the raw image markdown source should also be reserved
+		// 要获取更多Jerry的原创文章，请关注公众号"汪子熙":
+		if( isOriginalSignature(origin)){
+			continue;
+		}
 		raw.push(origin);
 	}
 	imagePool.sort(sortByIndex);
@@ -146,6 +157,8 @@ function replaceImageTag(raw,imagePool){
 	}
 	return formatted;
 }
+
+// Jerry： main logic!!!!!!!!!!!!!!
 
 function myFunction(){
 	var source = document.getElementById("raw");

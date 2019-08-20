@@ -26,7 +26,7 @@ https://github.com/i042416/KnowlegeRepository/issues?page=9&q=is%3Aissue+is%3Aop
 
 更多SAP原创技术分析，请关注公众号“汪子熙”。
 
-2676结束，今天的quota用了50
+2609开始，2559结束
 
 印度人后台：SP_ADMIN001 / WB($cXWpQyx2d$R>c>>X
 
