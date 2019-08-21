@@ -15,17 +15,26 @@ var response2 = '<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/s
 var soapreg2 = /.*<ID>(.*)<\/ID>.*<UUID>(.*)<\/UUID>.*/;
 
 var soapresult2 = soapreg2.exec(response2);
-debugger;
-/*parseString(xml, function (err, result) {
-    console.log(result);
-    var obj = JSON.parse(result);
-    // console.log("id: " + obj.ID);
-});*/
 
-var reg = /.*<ID>(.*)\]\]>/;
-var result = reg.exec(wechat);
-alert(result[0]);
-alert(result[1]);
+var link = "<https://api.github.com/repositories/80901824/issues?page=2>; rel=\"next\", <https://api.github.com/repositories/80901824/issues?page=98>; rel=\"last\"";
+
+var linkmatch = /<(.*)>.*<(.*)>.*/;
+
+var result = linkmatch.exec(link);
+
+var urlForNextPage = result[1];
+
+var urlForLastPage = result[2];
+
+console.log(urlForNextPage);
+console.log(urlForLastPage);
+
+// https://api.github.com/repositories/80901824/issues?page=98
+var lastMatch = /.*=(.+)/;
+
+var lastPage = lastMatch.exec(urlForLastPage);
+var lastPageNumber = lastPage[1];
+debugger;
 
 var  regexp = /aabb/g; //g可省
 // var  regexp = new Regexp("xyz","g"); //第二个参数可省 syntax error!!
