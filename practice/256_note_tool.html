@@ -15,12 +15,22 @@
 	background-color: black;
 }
 </style>
-<textarea id="raw" rows="40" cols="80">
+<textarea id="raw" rows="40" cols="80" onkeydown="keySend(event);">
 </textarea>
 <textarea id="result" rows="40" cols="80">
 Paste the raw string copied from Cloud note in the Raw area
 </textarea>
-<button onclick="myFunction()">Click me</button>
+<button id="jerrybutton" onclick="myFunction()">Click me</button>
+<script>
+	function keySend(event) {
+		if (event.ctrlKey && event.keyCode == 13) {
+			var button=document.getElementById("jerrybutton"); 
+			button.focus(); 
+			button.onclick(); 
+		}
+	}
+</script>
+
 <script>
 
 /*
@@ -178,7 +188,7 @@ function copyToClipboard(node) {
   try {
     var successful = document.execCommand('copy');
     var msg = successful ? 'successful' : 'unsuccessful';
-    alert('Copying text command was ' + msg);
+    // alert('Copying text command was ' + msg);
   } catch (err) {
     alert('Oops, unable to copy: ' + msg);
   }
