@@ -22,10 +22,11 @@
 44824   118 623058 08/21 2653
 45359   115 626245 08/22 2671
 45895   112 630831 08/23 2689
+46425   110 635841 08/24 2706
 
 2019-08-05 早上 1655开始 目标1441 49页 
 
-https://github.com/i042416/KnowlegeRepository/issues?page=16q=is%3Aissue+is%3Aopen
+https://github.com/i042416/KnowlegeRepository/issues?page=21q=is%3Aissue+is%3Aopen
 
 更多SAP原创技术分析，请关注公众号“汪子熙”。
 
