@@ -23,13 +23,17 @@
 45359   115 626245 08/22 2671
 45895   112 630831 08/23 2689
 46425   110 635841 08/24 2706
+46915   110 640451 08/25 2722
 
 2019-08-05 早上 1655开始 目标1441 49页 
 
-https://github.com/i042416/KnowlegeRepository/issues?page=21q=is%3Aissue+is%3Aopen
+https://github.com/i042416/KnowlegeRepository/issues?page=23q=is%3Aissue+is%3Aopen
 
+聊聊C语言和ABAP
 更多SAP原创技术分析，请关注公众号“汪子熙”。
 
-2609开始，
-
+2609开始，寄居蟹（拉丁学名：Paguridae）又名“白住房”、“干住屋”，主要以螺壳为寄体，寄居的最大螺体最大直径可达15厘米以上。其外形介于虾和蟹之间，多数寄居于螺壳内。
+ABAP Code Inspector那些隐藏的功能，您都知道吗？
 2509 - 2479 
+
+Ruby Script in C4C Oberon View
