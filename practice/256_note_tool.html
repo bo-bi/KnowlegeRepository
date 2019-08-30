@@ -137,8 +137,14 @@ function extractImage(source,raw,imagePool){
 	for( var i = 0; i < splitted.length; i++){
 		var origin = splitted[i];
 		var trimed = splitted[i].trim();
+		var storedImage = null;
 		if( isImage_new(trimed) ) { 
-			var storedImage = getImageIndexAndComplateUrl_new(trimed);
+			storedImage = getImageIndexAndComplateUrl_new(trimed);
+			if( storedImage)
+				imagePool.push(storedImage);
+		}
+		else if( isImage(trimed)){
+			storedImage = getImageIndexAndComplateUrl(trimed);
 			if( storedImage)
 				imagePool.push(storedImage);
 		}
