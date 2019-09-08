@@ -17,12 +17,9 @@
 49459   96  674204 09/05 2788
 49955   94  678724 09/06 2809
 50406   92  682112 09/07 2785
+50819   91  685143 09/08 2785
 
-2019-08-05 早上 1655开始 目标1441 49页 
-
-https://github.com/i042416/KnowlegeRepository/issues?page=37q=is%3Aissue+is%3Aopen
+https://github.com/i042416/KnowlegeRepository/issues?page=39q=is%3Aissue+is%3Aopen
 
 
-2509 - 2479 
 
-Ruby Script in C4C Oberon View
