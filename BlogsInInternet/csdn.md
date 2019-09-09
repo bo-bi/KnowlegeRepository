@@ -18,8 +18,8 @@
 49955   94  678724 09/06 2809
 50406   92  682112 09/07 2785
 50819   91  685143 09/08 2785
+51509   89  689383 09/09 2807
 
-https://github.com/i042416/KnowlegeRepository/issues?page=39q=is%3Aissue+is%3Aopen
-
+https://github.com/i042416/KnowlegeRepository/issues?page=5q=is%3Aissue+is%3Aopen
 
 
