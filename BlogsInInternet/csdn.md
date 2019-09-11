@@ -20,7 +20,8 @@
 50819   91  685143 09/08 2785
 51509   89  689383 09/09 2807
 51661   88  691903 09/10 2807
+52191   87  695112 09/11 
 
-https://github.com/i042416/KnowlegeRepository/issues?page=5q=is%3Aissue+is%3Aopen
+https://github.com/i042416/KnowlegeRepository/issues?page=4q=is%3Aissue+is%3Aopen
 
 
