@@ -64,6 +64,7 @@ function getNodeTobeReplaced(current, parent, newPicUrl ){
 var IMAGE_PATTERN = /^!\[(.*)\]\((.*)\).*$/;///^.*src="(.*).*/;
 var IMAGE_NAME = /^clipboard(\d+).*$/;
 var IMAGE_TAG = "[图片]";
+var OLD_IMAGE_INDEX = 1;
 
 function SortedImage(index, url){
 	this.index = index;
@@ -85,28 +86,42 @@ function getImageIndexAndComplateUrl(trimed){
 
 	var result = IMAGE_PATTERN.exec(trimed);
 
-	if(!result) // pattern fails to match
+	if(!result){ // pattern fails to match
 		return null;
+	}
 	// result 0 : whole image markdown
 	// result 1 : "clipboard1"
 	if( result.length != 3){
 		return null;
 	}
+	var index = -1;
+	if( result[1] === "image"){
+		index = OLD_IMAGE_INDEX++;
+		return new SortedImage(index, result[2]);
+	}
 	var imageName = IMAGE_NAME.exec(result[1]);
 	if( imageName.length != 2) {
 		return null;
 	}
-	var index = parseInt(imageName[1]);
+	index = parseInt(imageName[1]);
 	return new SortedImage(index, result[2]);
 }
 
 /*
 <img width="587" alt="clipboard1" src="https://user-images.githubusercontent.com/5669954/59403437-2af8a700-8dd5-11e9-9ab3-bf9f1b7cbbea.png">
 
+Jerry 2019-09-13 10:10PM mid autumn holiday
+
+for some old issue, see pattern below:
+
+![image](https://cloud.githubusercontent.com/assets/5669954/26522769/4eab953c-4308-11e7-8f36-aed394b1d46e.png)
+
 */
 
 function isImage(trimed){
 	if ( trimed.indexOf("clipboard") > 0 && trimed.indexOf("![") === 0)
+		return true;
+	if ( trimed.indexOf("image") > 0 && trimed.indexOf("![") === 0)
 		return true;
 	return false;
 }
@@ -181,6 +196,7 @@ function myFunction(){
 function clearInput(){
 	var source = document.getElementById("raw");
 	source.value = "";
+	OLD_IMAGE_INDEX = 1;
 }
 
 function copyToClipboard(node) {
