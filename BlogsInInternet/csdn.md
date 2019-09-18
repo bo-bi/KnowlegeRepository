@@ -26,10 +26,12 @@
 53733   83  715248 09/15 
 54248   81  717905 09/16 2836
 54758   81  721713 09/17 2891
+55282   77  725117 09/18 2909
 
 https://github.com/i042416/KnowlegeRepository/issues?page=4q=is%3Aissue+is%3Aopen
 /IWFND/MAINT_SERVICE
 Z_JERRY_COMMU_SCE
 
-能有机会和全球各地的工程师工作，体验到不同的文化
+Similarity score
 
+android/app/build.gradle
