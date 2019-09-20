@@ -30,10 +30,4 @@
 55744   74  728562 09/19 2926
 56250   73  731776 09/20 2937
 
-https://github.com/i042416/KnowlegeRepository/issues?page=4q=is%3Aissue+is%3Aopen
-/IWFND/MAINT_SERVICE
-Z_JERRY_COMMU_SCE
-
-Similarity score
-
-android/app/build.gradle
+3031 node
