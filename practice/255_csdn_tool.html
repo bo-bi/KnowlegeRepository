@@ -100,6 +100,8 @@ function getImageIndexAndComplateUrl(trimed){
 		return new SortedImage(index, result[2]);
 	}
 	var imageName = IMAGE_NAME.exec(result[1]);
+	if( imageName === null)
+		return null;
 	if( imageName.length != 2) {
 		return null;
 	}
@@ -149,7 +151,11 @@ function extractImage(source,raw,imagePool){
 			if( storedImage)
 				imagePool.push(storedImage);
 			else{
-				alert("caution! Corrupt image tag!");
+				if( isOriginalSignature(origin)){
+					continue;
+				}
+				else
+					alert("caution! Corrupt image tag!");
 			}
 		}
 		// Jerry: for CSDN blog, the raw image markdown source should also be reserved

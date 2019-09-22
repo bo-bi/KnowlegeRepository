@@ -9,6 +9,8 @@ aa	```ABAP
 ac	Access Token
 ad	Administrator
 ad	Administration
+adt	ABAP Development Tool
+ag	Angular
 al	阿里云
 an	安卓
 an	Android
@@ -28,6 +30,7 @@ c	Cloud
 c	C4C
 cc	C/4HANA
 cc	SAP Cloud Connector
+cdt	成都天府软件园
 ce	Certificate
 ch	程序猿
 ch	程序员
@@ -61,6 +64,7 @@ ex	Extensibility
 ex	Extension field
 f	Fundamentals
 f	Fiori
+fn	Foundation
 g	Google
 g	Gigya
 g	Github
@@ -112,6 +116,7 @@ m	Markdown
 ma	Marketing
 mc	Marketing Cloud
 ml	Machine Learning
+mz	猛追湾
 n	Netweaver
 n	nodejs
 n	Nginx
@@ -123,6 +128,7 @@ o	Opportunity
 o	organization
 o	One Order
 od	OData
+op	On-Premises
 or	Orchestra
 ov	Overview
 p	package.json
@@ -139,8 +145,11 @@ q	区块链
 r	容器
 r	Restful
 r	repository
+ra	Restful ABAP Programming
 re	Restful API
+rea	React
 reg	Regular Expression
+rn	React-Native
 ro	round table
 rt	round-trip
 rx	瑞幸咖啡
